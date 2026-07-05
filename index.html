@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none';">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>CoD Zombies Map Randomizer — Spin the Wheel of the Undead</title>
+    <meta name="description" content="The ultimate Call of Duty Zombies map randomizer. Select maps from every CoD Zombies game — World at War to Black Ops 6 — and let fate decide your next match.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Creepster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Animated Background Particles -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Header -->
+    <header id="site-header">
+        <div class="header-content">
+            <div class="logo-area">
+                <h1 id="site-title">
+                    <span class="title-icon">☠️</span>
+                    <span class="title-text">Zombies Map <span class="highlight">Randomizer</span></span>
+                </h1>
+                <p class="subtitle">Every map. Every game. One fate.</p>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Sticky Controls Bar -->
+    <div id="controls-bar">
+        <div class="controls-content">
+            <div class="controls-left">
+                <button id="btn-select-all" class="ctrl-btn" title="Select All Maps">
+                    <span class="btn-icon">✅</span> Select All
+                </button>
+                <button id="btn-deselect-all" class="ctrl-btn ctrl-btn-outline" title="Deselect All Maps">
+                    <span class="btn-icon">❌</span> Deselect All
+                </button>
+                <div class="map-counter">
+                    <span id="selected-count">0</span> / <span id="total-count">0</span> maps selected
+                </div>
+            </div>
+            <div class="controls-right">
+                <div class="pick-control">
+                    <label for="pick-count">Pick</label>
+                    <div class="pick-stepper">
+                        <button id="pick-minus" class="stepper-btn" aria-label="Decrease">−</button>
+                        <input type="number" id="pick-count" value="1" min="1" max="99" aria-label="Number of maps to pick">
+                        <button id="pick-plus" class="stepper-btn" aria-label="Increase">+</button>
+                    </div>
+                    <span class="pick-label">map(s)</span>
+                </div>
+                <button id="btn-randomize" class="randomize-btn" title="Randomize!">
+                    <span class="dice-icon">🎲</span>
+                    <span>RANDOMIZE</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content: Game Cards -->
+    <main id="games-container">
+        <!-- Populated by JS -->
+    </main>
+
+    <!-- Result Modal -->
+    <div id="result-overlay" class="result-overlay hidden">
+        <div id="result-modal" class="result-modal">
+            <button id="result-close" class="result-close" aria-label="Close">&times;</button>
+            <div class="result-header">
+                <h2>🎯 Your Fate Is Sealed</h2>
+                <p class="result-subtitle">The undead have chosen...</p>
+            </div>
+            <div id="result-cards" class="result-cards">
+                <!-- Populated by JS -->
+            </div>
+            <div class="result-actions">
+                <button id="btn-reroll" class="randomize-btn reroll-btn">
+                    <span class="dice-icon">🎲</span>
+                    <span>Re-roll</span>
+                </button>
+                <button id="btn-close-result" class="ctrl-btn ctrl-btn-outline">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden"></div>
+
+    <footer id="site-footer">
+        <p>&copy; 2026 Zombies Map Randomizer &mdash; Not affiliated with Activision or any Call of Duty developer.</p>
+        <p class="footer-sub">Built with 🧟 and caffeine at 2 AM</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
